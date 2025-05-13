@@ -4,6 +4,8 @@
  */
 package arboleda;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author salon
@@ -29,7 +31,8 @@ public class Arbol {
         Nodo nodoPadre = arr[i];
 
         if (arr[i] == null) {
-            arr[i] = nodo;//Inserta raiz
+            raiz=nodo;
+            arr[i] = raiz;//Inserta raiz
             return true;
         } 
         else {
@@ -59,5 +62,52 @@ public class Arbol {
     public Nodo[] getArr() {
         return arr;
     }
+
+    public Nodo getRaiz() {
+        return raiz;
+    }
+    
+     public ArrayList inOrden() {
+        ArrayList list = new ArrayList<>();
+        inOrdenAux(list, 0);
+        
+        return list;
+    }
+    
+    private void inOrdenAux(ArrayList list, int index) {
+        if (index<capacidad && arr[index]!=null) {
+            inOrdenAux(list, 2*index+1);
+            list.add(arr[index]);
+            System.out.println(" - "+arr[index]);
+            inOrdenAux(list, 2*index+2);
+        }
+    }
+    
+    public ArrayList preOrden() {
+        ArrayList list = new ArrayList<>();
+        preOrdenAux(list, 0);
+        
+        return list;
+    }
+    
+    private void preOrdenAux(ArrayList list, int index) {
+        if (index<capacidad && arr[index]!=null) {
+            list.add(arr[index]);
+            System.out.println(" - "+arr[index]);
+            inOrdenAux(list, 2*index+1);
+            inOrdenAux(list, 2*index+2);
+        }
+    }
+    
+    private void busquedaSiEstaOrdenado(int elEscondido){
+        
+        if(elEscondido == raiz.getDato()){
+            System.out.println("Lo encontramos esta en la raiz");
+        }
+        if(elEscondido<raiz.getDato()){
+            System.out.println("moverse ala izq");
+        }
+        
+    } 
     
 }

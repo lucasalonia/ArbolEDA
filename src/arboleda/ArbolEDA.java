@@ -16,15 +16,30 @@ public class ArbolEDA {
 //        
 //        arbol.inOrden();
 
-        Nodo nodoUno= new Nodo(1);
-        Nodo nodoTres= new Nodo(3);
-        Nodo nodoDos= new Nodo(2);
+        Nodo nodo1= new Nodo(10);
+        Nodo nodo2= new Nodo(20);
+        Nodo nodo3= new Nodo(30);
+        Nodo nodo4= new Nodo(40);
+        Nodo nodo5= new Nodo(50);
+        Nodo nodo6= new Nodo(15);
+        Nodo nodo7= new Nodo(25);
         
-        Arbol arbol = new Arbol (2,3);
+        Arbol arbol = new Arbol (2,5);
         
-        arbol.insert(nodoDos);
-        arbol.insert(nodoUno);
-        arbol.insert(nodoTres);
+        arbol.insert(nodo3);
+        arbol.insert(nodo2);
+        arbol.insert(nodo1);
+        arbol.insert(nodo4);
+        arbol.insert(nodo5);
+        arbol.insert(nodo6);
+        arbol.insert(nodo7);
+        
+        arbol.inOrden();
+        //arbol.preOrden();
+        
+        
+        System.out.println("Raiz :"+ arbol.getRaiz());
+        
         
         for (Nodo nodo : arbol.getArr()) {
             if(nodo!=null){
@@ -39,7 +54,7 @@ public class ArbolEDA {
                 }
             }
             
-        }
+        } 
         
         
     }
